@@ -46,5 +46,6 @@ end
 [*('a'..'z'),*('A'..'Z'),*('0'..'9')].shuffle[0,9].join
 # => 4vu2txmhn
 ```
-![](media/14543253602103.jpg)
+![](/assets/images/14543260139333.jpg)
+
 
