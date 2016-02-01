@@ -87,6 +87,7 @@ print("There is no value")
 }
 ```
 
+![Kobito.A8EuEv.png](https://qiita-image-store.s3.amazonaws.com/0/60780/cf415f8d-7079-720b-bd2a-ab60b5a528ad.png "Kobito.A8EuEv.png")
 
 
 
