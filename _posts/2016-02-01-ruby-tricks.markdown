@@ -12,6 +12,8 @@ description: Ruby
 Hash['key1', 'value1', 'key2', 'value2']
 
 # => {"key1"=>"value1", "key2"=>"value2"]
+
+{ a: 1, b: 2, c: 3 }.map { |k, v| [k, 2*v] }.to_h
 ```
 
 ## Lambda Literal `->`
