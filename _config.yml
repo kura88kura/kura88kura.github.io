@@ -40,3 +40,6 @@ defaults:
             type: drafts
         values:
             layout: post
+
+redcarpet:
+    extensions: ["fenced_code_blocks", "tables"]
