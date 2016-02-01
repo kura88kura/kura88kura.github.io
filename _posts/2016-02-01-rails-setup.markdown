@@ -8,26 +8,26 @@ description: Rails API
 
 ## 搭建环境
 
-```shell
+{% highlight ruby %}
 mkdir railsapisample
 cd railsapisample
 vim .rvmrc
-```
+{% endhighlight %}
 > .rvmrc
 
-```rb
+{% highlight ruby %}
 rvm use 2.1.5@rails420
-```
+{% endhighlight %}
 
-```shell
+{% highlight ruby %}
 rails new railsapisample -d mysql
 cd railsapisample
 mysql.service start
-```
+{% endhighlight %}
 
 > config/database.yml
 
-```rb
+{% highlight ruby %}
 default: &default
   adapter: mysql2
   encoding: utf8
@@ -35,18 +35,18 @@ default: &default
   username: root
   password: # Your password
   socket: /tmp/mysql.sock
-```
+{% endhighlight %}
 
-```
+{% highlight ruby %}
 rake db:create
 rails s
-```
-![](media/14539462177125/14539470400595.jpg)￼
+{% endhighlight %}
+
 
 > app/controllers/application_controller.rb
 >
 
-```ruby
+{% highlight ruby %}
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
@@ -62,17 +62,17 @@ class ApplicationController < ActionController::Base
   end
 
 end
-```
+{% endhighlight %}
 
-```shell
+{% highlight ruby %}
 rails g controller api
 rails g controller home
 rails g model User
-```
+{% endhighlight %}
 
 > db/migrate/20160128022807_create_users.rb
 
-```rb
+{% highlight ruby %}
 class CreateUsers < ActiveRecord::Migration
   def change
     create_table :users do |t|
@@ -93,15 +93,15 @@ class CreateUsers < ActiveRecord::Migration
     end
   end
 end
-```
+{% endhighlight %}
 
-```
+{% highlight ruby %}
 rake db:migrate
-```
+{% endhighlight %}
 
 > config/routes.rb
 
-```rb
+{% highlight ruby %}
 Rails.application.routes.draw do
   root 'home#index'
 
@@ -120,11 +120,11 @@ Rails.application.routes.draw do
 
   match "*path", to: "application#page_not_found", via: :all
 end
-```
+{% endhighlight %}
 
 > app/models/user.rb
 
-```rb
+{% highlight ruby %}
 class User < ActiveRecord::Base
   attr_accessor :password
   before_save :encrypt_password
@@ -174,11 +174,11 @@ class User < ActiveRecord::Base
     super(options)
   end
 end
-```
+{% endhighlight %}
 
 > app/controllers/api_controller.rb
 
-```rb
+{% highlight ruby %}
 class ApiController < ApplicationController
 
   http_basic_authenticate_with name:"eason", password:"password", :only => [:signup, :signin, :get_token]
@@ -355,29 +355,29 @@ class ApiController < ApplicationController
   end
 
 end
-```
+{% endhighlight %}
 
 > app/controller/home_controller.rb
 
-```rb
+{% highlight ruby %}
 class HomeController < ApplicationController
   def index
     render inline: "Welcome to my API!"
   end
 end
-```
+{% endhighlight %}
 
 > Gemfile
 
-```rb
+{% highlight ruby %}
 gem 'bcrypt'
 gem 'aescrypt'
 gem 'figaro'
 gem 'rack-cors'
-```
+{% endhighlight %}
 > config/application.rb
 
-```rb
+{% highlight ruby %}
    config.middleware.insert_before 0, "Rack::Cors" do
      allow do
        origins '*'
@@ -385,10 +385,11 @@ gem 'rack-cors'
      end
    end
 
-```
+{% endhighlight %}
 
-```
+{% highlight ruby %}
 bundle install
 rails s
-```
+{% endhighlight %}
+
 
