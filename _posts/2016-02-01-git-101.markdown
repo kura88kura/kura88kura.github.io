@@ -1,9 +1,8 @@
    ---
-   layout: post
    title: Git 101
+   date: 2016-02-01
    description: git
    ---
-
 ##Tips
 >A trick to download a specific folder from a project nested in Github
 
@@ -77,4 +76,5 @@ cordova create myApp
 cd myapp/www
 clean all
 ```
+
 
